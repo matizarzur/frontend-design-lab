@@ -10,8 +10,12 @@
 <body>
   <div class="container">
     <p><a href="/">&larr; volver al índice</a></p>
-    <h1>ejemplo-01</h1>
-    <p>Plantilla base para un test de diseño. Editá <code>experimentos/ejemplo-01/index.html</code> y <code>style.css</code>.</p>
+    <h1>ejemplo-01 — tarjetas de usuario</h1>
+    <p>Grilla de tarjetas con datos en vivo de la API (<code>GET /api/users</code>). Requiere tener la API corriendo en <code>localhost:8000</code>.</p>
+
+    <div id="cards" class="cards">Cargando...</div>
   </div>
+
+  <script type="module" src="./main.js"></script>
 </body>
 </html>

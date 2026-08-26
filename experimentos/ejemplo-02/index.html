@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cauce — Gestión de operaciones</title>
+  <meta name="description" content="Cauce conecta procesos, equipos y datos para que sepas exactamente dónde está cada cosa y por qué se demora." />
+
+  <!-- Evita el parpadeo de tema: se aplica antes del primer paint -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('cauce-theme');
+        if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header class="site-header" id="top">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Cauce, inicio">
+      <svg class="brand-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 17c3.5 0 3.5-10 7-10s3.5 10 7 10 3.5-4 4-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-name">Cauce</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#producto">Producto</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#integraciones">Integraciones</a>
+      <a href="#precios">Precios</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema" title="Cambiar tema">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M12 2.6v2.2M12 19.2v2.2M21.4 12h-2.2M4.8 12H2.6M18.6 5.4l-1.6 1.6M7 17l-1.6 1.6M18.6 18.6L17 17M7 7L5.4 5.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M20 13.4A8.2 8.2 0 1 1 10.6 4a6.6 6.6 0 0 0 9.4 9.4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <a class="link-quiet" href="#">Ingresar</a>
+      <a class="btn btn-primary btn-sm" href="#demo">Pedir demo</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Gestión de operaciones</p>
+      <h1>Toda tu operación,<br />en un solo tablero</h1>
+      <p class="lead">
+        Cauce conecta procesos, equipos y datos para que sepas exactamente
+        dónde está cada cosa — y por qué se demora.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#demo">Pedir una demo</a>
+        <a class="btn btn-ghost" href="#como-funciona">Ver cómo funciona <span aria-hidden="true">→</span></a>
+      </div>
+      <p class="hero-note">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Implementación en 3 semanas · Sin tarjeta de crédito
+      </p>
+    </div>
+
+    <!-- Mockup de la app, 100% HTML/CSS -->
+    <div class="mockup" role="img" aria-label="Captura simulada del tablero de operaciones de Cauce">
+      <div class="mockup-bar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="mockup-url">app.cauce.io/operaciones</span>
+      </div>
+      <div class="mockup-body">
+        <aside class="mk-side">
+          <span class="mk-nav is-active"><i></i>Panel</span>
+          <span class="mk-nav"><i></i>Flujos</span>
+          <span class="mk-nav"><i></i>Equipo</span>
+          <span class="mk-nav"><i></i>Datos</span>
+          <span class="mk-nav"><i></i>Ajustes</span>
+        </aside>
+        <div class="mk-main">
+          <div class="mk-head">
+            <strong>Operaciones · Q3</strong>
+            <span class="mk-chip">Últimos 30 días</span>
+          </div>
+
+          <div class="mk-stats">
+            <div class="mk-stat"><b>128</b><span>en curso</span></div>
+            <div class="mk-stat"><b>2.9d</b><span>ciclo medio</span></div>
+            <div class="mk-stat mk-stat--warn"><b>6</b><span>con desvío</span></div>
+          </div>
+
+          <div class="mk-rows">
+            <div class="mk-row"><span class="st st--ok"></span><span class="mk-name">Alta de proveedor</span><span class="mk-time">3.2d</span></div>
+            <div class="mk-row"><span class="st st--ok"></span><span class="mk-name">Orden de compra</span><span class="mk-time">1.8d</span></div>
+            <div class="mk-row"><span class="st st--warn"></span><span class="mk-name">Aprobación legal</span><span class="mk-time">5.1d</span></div>
+            <div class="mk-row"><span class="st st--ok"></span><span class="mk-name">Recepción</span><span class="mk-time">2.4d</span></div>
+          </div>
+
+          <div class="mk-chart" aria-hidden="true">
+            <span style="height:38%"></span><span style="height:56%"></span><span style="height:44%"></span>
+            <span style="height:72%"></span><span style="height:61%"></span><span style="height:88%"></span>
+            <span style="height:54%"></span><span style="height:76%"></span><span style="height:67%"></span>
+            <span style="height:92%"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logos de clientes -->
+  <div class="wrap logos">
+    <p class="logos-label">Operando hoy en</p>
+    <ul class="logos-list">
+      <li>NORDELTA</li>
+      <li>Grupo Salta</li>
+      <li>FLUVIA</li>
+      <li>Tecnosur</li>
+      <li>MERIDIAN</li>
+      <li>Ardoz&nbsp;S.A.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════ FEATURES ══════════════ -->
+<section class="section" id="producto">
+  <div class="wrap">
+    <header class="section-head">
+      <p class="eyebrow">Capacidades</p>
+      <h2>Lo que dejás de hacer a mano</h2>
+      <p class="section-desc">Cuatro piezas que reemplazan planillas, cadenas de mail y reuniones de seguimiento.</p>
+    </header>
+
+    <div class="features">
+      <article class="feature">
+        <span class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.8"/><path d="M10 6.5h3.5a2 2 0 0 1 2 2V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </span>
+        <h3>Flujos de trabajo</h3>
+        <p>Modelá cada proceso una vez y replicalo. Reglas, responsables y plazos que se aplican solos.</p>
+      </article>
+
+      <article class="feature">
+        <span class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20V10M9 20V4M15 20v-7M21 20v-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </span>
+        <h3>Visibilidad en tiempo real</h3>
+        <p>Cada tarea con su estado, su dueño y su tiempo de ciclo. Sin pedir reportes por mail.</p>
+      </article>
+
+      <article class="feature">
+        <span class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4a6 6 0 0 0-6 6c0 4-1.5 5.5-1.5 5.5h15S18 14 18 10a6 6 0 0 0-6-6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 19a2.2 2.2 0 0 0 4 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </span>
+        <h3>Alertas por desvío</h3>
+        <p>Cauce avisa cuando un proceso se sale del plazo esperado, antes de que sea un problema.</p>
+      </article>
+
+      <article class="feature">
+        <span class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 4 6v6c0 4.4 3.2 7.9 8 9 4.8-1.1 8-4.6 8-9V6l-8-3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>Auditoría completa</h3>
+        <p>Cada cambio queda registrado: quién, cuándo y qué. Exportable para auditorías internas o externas.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ MÉTRICAS ══════════════ -->
+<section class="metrics-band">
+  <div class="wrap metrics">
+    <div class="metric"><b>340</b><span>empresas operando en Cauce</span></div>
+    <div class="metric"><b>42%</b><span>menos tiempo de ciclo promedio</span></div>
+    <div class="metric"><b>99.9%</b><span>uptime garantizado por SLA</span></div>
+    <div class="metric"><b>3 sem</b><span>implementación promedio</span></div>
+  </div>
+</section>
+
+<!-- ══════════════ CÓMO FUNCIONA ══════════════ -->
+<section class="section" id="como-funciona">
+  <div class="wrap">
+    <header class="section-head">
+      <p class="eyebrow">Implementación</p>
+      <h2>De la primera reunión a producción</h2>
+      <p class="section-desc">Un proceso acotado y con fechas. Sin proyectos que se estiran seis meses.</p>
+    </header>
+
+    <ol class="steps">
+      <li class="step">
+        <span class="step-num">01</span>
+        <h3>Relevamiento</h3>
+        <p>Mapeamos tus procesos actuales junto a tu equipo. Dos sesiones, sin compromiso.</p>
+      </li>
+      <li class="step">
+        <span class="step-num">02</span>
+        <h3>Configuración</h3>
+        <p>Cargamos tus flujos, roles y reglas de negocio en la plataforma.</p>
+      </li>
+      <li class="step">
+        <span class="step-num">03</span>
+        <h3>Integración</h3>
+        <p>Conectamos Cauce con los sistemas que ya usás. Sin migrar nada a mano.</p>
+      </li>
+      <li class="step">
+        <span class="step-num">04</span>
+        <h3>Puesta en marcha</h3>
+        <p>Capacitación al equipo y acompañamiento durante los primeros 90 días.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══════════════ INTEGRACIONES ══════════════ -->
+<section class="section section--alt" id="integraciones">
+  <div class="wrap">
+    <header class="section-head">
+      <p class="eyebrow">Integraciones</p>
+      <h2>Conecta con lo que ya usás</h2>
+      <p class="section-desc">Sincronización bidireccional con tus sistemas actuales, más una API REST documentada para todo lo demás.</p>
+    </header>
+
+    <ul class="integrations">
+      <li class="integration"><span class="int-mark">SL</span>Slack</li>
+      <li class="integration"><span class="int-mark">GW</span>Google Workspace</li>
+      <li class="integration"><span class="int-mark">M3</span>Microsoft 365</li>
+      <li class="integration"><span class="int-mark">SA</span>SAP</li>
+      <li class="integration"><span class="int-mark">SF</span>Salesforce</li>
+      <li class="integration"><span class="int-mark">HS</span>HubSpot</li>
+      <li class="integration"><span class="int-mark">PB</span>Power BI</li>
+      <li class="integration"><span class="int-mark">TG</span>Tango Gestión</li>
+      <li class="integration"><span class="int-mark">ZP</span>Zapier</li>
+      <li class="integration"><span class="int-mark">{}</span>API REST</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════ TESTIMONIOS ══════════════ -->
+<section class="section">
+  <div class="wrap">
+    <header class="section-head">
+      <p class="eyebrow">Clientes</p>
+      <h2>Lo que cambió para ellos</h2>
+    </header>
+
+    <div class="testimonials">
+      <figure class="quote">
+        <blockquote>Antes de Cauce, saber en qué estado estaba un expediente requería tres llamadas. Hoy lo veo en el tablero.</blockquote>
+        <figcaption>
+          <span class="avatar">LB</span>
+          <span><b>Laura Benítez</b><small>Directora de Operaciones · Grupo Salta</small></span>
+        </figcaption>
+      </figure>
+
+      <figure class="quote">
+        <blockquote>La implementación fue en tres semanas. Lo que más me sorprendió es que el equipo lo adoptó sin resistencia.</blockquote>
+        <figcaption>
+          <span class="avatar">MO</span>
+          <span><b>Martín Oliva</b><small>Gerente General · Fluvia</small></span>
+        </figcaption>
+      </figure>
+
+      <figure class="quote">
+        <blockquote>Redujimos el tiempo de ciclo del proceso de compras un 40% en el primer trimestre.</blockquote>
+        <figcaption>
+          <span class="avatar">CR</span>
+          <span><b>Cecilia Ramos</b><small>CFO · Tecnosur</small></span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PRECIOS ══════════════ -->
+<section class="section section--alt" id="precios">
+  <div class="wrap">
+    <header class="section-head">
+      <p class="eyebrow">Planes</p>
+      <h2>Precios sin sorpresas</h2>
+      <p class="section-desc">Facturación mensual o anual. Sin costo de setup en Equipo y Empresa.</p>
+    </header>
+
+    <div class="pricing">
+      <article class="plan">
+        <h3>Equipo</h3>
+        <p class="plan-price"><b>USD 12</b><span>/usuario/mes</span></p>
+        <p class="plan-for">Para áreas que arrancan con un proceso.</p>
+        <ul class="plan-list">
+          <li>Hasta 25 usuarios</li>
+          <li>10 flujos activos</li>
+          <li>Integraciones básicas</li>
+          <li>Soporte por email</li>
+        </ul>
+        <a class="btn btn-outline btn-block" href="#demo">Empezar</a>
+      </article>
+
+      <article class="plan plan--featured">
+        <span class="plan-badge">Más elegido</span>
+        <h3>Empresa</h3>
+        <p class="plan-price"><b>USD 29</b><span>/usuario/mes</span></p>
+        <p class="plan-for">Para operaciones que cruzan varias áreas.</p>
+        <ul class="plan-list">
+          <li>Usuarios ilimitados</li>
+          <li>Flujos ilimitados</li>
+          <li>Todas las integraciones</li>
+          <li>SSO / SAML</li>
+          <li>Soporte prioritario</li>
+          <li>Gerente de cuenta asignado</li>
+        </ul>
+        <a class="btn btn-primary btn-block" href="#demo">Pedir demo</a>
+      </article>
+
+      <article class="plan">
+        <h3>Corporativo</h3>
+        <p class="plan-price"><b>A medida</b></p>
+        <p class="plan-for">Para requisitos de infraestructura propios.</p>
+        <ul class="plan-list">
+          <li>On-premise o nube privada</li>
+          <li>SLA 99.9% por contrato</li>
+          <li>Auditoría y compliance</li>
+          <li>Integraciones a medida</li>
+          <li>Soporte 24/7</li>
+        </ul>
+        <a class="btn btn-outline btn-block" href="#demo">Hablar con ventas</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FAQ ══════════════ -->
+<section class="section">
+  <div class="wrap wrap--narrow">
+    <header class="section-head">
+      <p class="eyebrow">Preguntas frecuentes</p>
+      <h2>Antes de que preguntes</h2>
+    </header>
+
+    <div class="faq">
+      <details class="faq-item">
+        <summary>¿Cuánto tarda realmente la implementación?</summary>
+        <p>Tres semanas es el promedio para una operación de hasta cinco procesos. Casos con muchas integraciones o reglas de negocio complejas pueden llegar a seis. Te damos una estimación cerrada después del relevamiento, antes de que firmes nada.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Necesito migrar mis datos actuales?</summary>
+        <p>No a mano. Importamos desde planillas, bases SQL o vía API. Los sistemas que seguís usando quedan sincronizados, no reemplazados.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Dónde se alojan los datos?</summary>
+        <p>Por defecto en la región que elijas (São Paulo, Virginia o Frankfurt), cifrados en tránsito y en reposo. El plan Corporativo permite despliegue on-premise o en tu propia nube privada.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Qué pasa si necesito un flujo que no está contemplado?</summary>
+        <p>El editor de flujos cubre la mayoría de los casos sin escribir código. Para lo que no, la API REST y los webhooks te dejan extender cualquier etapa. En Corporativo lo desarrollamos nosotros.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Puedo probarlo antes de contratar?</summary>
+        <p>Sí. Después de la demo armamos un entorno de prueba con tus propios procesos cargados, disponible 30 días. Sin tarjeta de crédito.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CTA FINAL ══════════════ -->
+<section class="cta-final" id="demo">
+  <div class="wrap cta-inner">
+    <div>
+      <h2>Empecemos por ver tu operación</h2>
+      <p>Una llamada de 30 minutos. Te mostramos Cauce funcionando sobre un proceso tuyo, no sobre una demo genérica.</p>
+    </div>
+    <form class="cta-form" novalidate>
+      <label class="sr-only" for="email">Email corporativo</label>
+      <input id="email" type="email" name="email" placeholder="tu@empresa.com" autocomplete="email" required />
+      <button class="btn btn-invert" type="submit">Pedir demo</button>
+      <p class="cta-legal">Te respondemos dentro de las 24&nbsp;h hábiles.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="#top">
+        <svg class="brand-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 17c3.5 0 3.5-10 7-10s3.5 10 7 10 3.5-4 4-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">Cauce</span>
+      </a>
+      <p>La operación de tu empresa, en un solo lugar.</p>
+    </div>
+
+    <nav class="footer-col" aria-label="Producto">
+      <h4>Producto</h4>
+      <a href="#producto">Capacidades</a>
+      <a href="#integraciones">Integraciones</a>
+      <a href="#precios">Precios</a>
+      <a href="#">Seguridad</a>
+    </nav>
+
+    <nav class="footer-col" aria-label="Empresa">
+      <h4>Empresa</h4>
+      <a href="#">Nosotros</a>
+      <a href="#">Clientes</a>
+      <a href="#">Trabajá con nosotros</a>
+      <a href="#">Contacto</a>
+    </nav>
+
+    <nav class="footer-col" aria-label="Recursos">
+      <h4>Recursos</h4>
+      <a href="#">Documentación</a>
+      <a href="#">API</a>
+      <a href="#">Estado del servicio</a>
+      <a href="#">Blog</a>
+    </nav>
+  </div>
+
+  <div class="wrap footer-bottom">
+    <small>© 2026 Cauce S.A. · Todos los derechos reservados</small>
+    <small><a href="/">← volver al índice del lab</a></small>
+  </div>
+</footer>
+
+<script type="module" src="./main.js"></script>
+</body>
+</html>
